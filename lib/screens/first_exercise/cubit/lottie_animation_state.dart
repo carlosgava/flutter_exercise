@@ -7,7 +7,7 @@ class LottieAnimationInitialState extends LottieAnimationState {}
 class LottieAnimationLoadingState extends LottieAnimationState {}
 
 class LottieAnimationLoadedState extends LottieAnimationState {
-  final Uint8List bytes;
+  final String bytes;
   LottieAnimationLoadedState(this.bytes);
 }
 

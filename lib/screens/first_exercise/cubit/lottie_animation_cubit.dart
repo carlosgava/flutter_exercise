@@ -7,15 +7,14 @@ import 'package:formfun_flutter_test/screens/first_exercise/repository/read_file
 part 'lottie_animation_state.dart';
 
 class LottieAnimationCubit extends Cubit<LottieAnimationState> {
-  final ReadFilesRepository repository;
 
-  LottieAnimationCubit(this.repository) : super(LottieAnimationInitialState());
+  LottieAnimationCubit() : super(LottieAnimationInitialState());
 
   Future<void> readFileBytes(String filePath) async {
     emit(LottieAnimationLoadingState());
     try {
-      final fileContent = await repository.readBytesFromFile(filePath);
-      emit(LottieAnimationLoadedState(fileContent));
+      await Future.delayed(const Duration(seconds: 6));
+      emit(LottieAnimationLoadedState('Loaded'));
     } catch(e) {
       emit(LottieAnimationErrorState(e.toString()));
     }

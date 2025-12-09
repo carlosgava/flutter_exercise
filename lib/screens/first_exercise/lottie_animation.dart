@@ -34,7 +34,7 @@ class _LottieCardAnimation extends State<LottieCardAnimation> {
       ),
       body: BlocBuilder<LottieAnimationCubit, LottieAnimationState>(
         builder: (context, state) {
-          if (state is LottieAnimationLoadingState || state is LottieAnimationInitialState) {
+          if (state is LottieAnimationInitialState || state is LottieAnimationLoadingState) {
             return showAnimation(true);
           } else if (state is LottieAnimationLoadedState) {
             return showAnimation(false);
