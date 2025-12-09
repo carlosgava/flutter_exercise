@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:formfun_flutter_test/widgets/progress_bar_indicator.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formfun_flutter_test/screens/first_exercise/cubit/lottie_animation_cubit.dart';
@@ -114,6 +115,7 @@ Widget _withoutAnimation() {
 }
 
 Widget _withAnimation() {
+  double currentProgress = 0.3;
   return LoadingBorder(
     cornerRadius: 15,
     borderWidth: 0.8,
@@ -140,12 +142,12 @@ Widget _withAnimation() {
             fit: BoxFit.cover,
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Completado!',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+          ProgressBarIndicator(
+            progress: (currentProgress + 0.1).clamp(0.0, 1.0),
+            progressBarColor: Colors.green,
+            backgroundColor: Colors.grey.shade300,
+            height: 25.0,
+            borderRadius: BorderRadius.circular(12.0),
           ),
           const SizedBox(height: 5),
           const Text(
