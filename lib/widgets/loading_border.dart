@@ -26,8 +26,8 @@ class LoadingBorder extends StatefulWidget {
     this.padding = EdgeInsets.zero,
     this.startWithRandomPosition = true,
     this.isTrailingTransparent = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _LoadingBorderState createState() => _LoadingBorderState();

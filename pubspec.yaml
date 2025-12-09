@@ -12,6 +12,9 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   lottie: any
+  dio: any
+  flutter_bloc: any
+  equatable: any
 
 
 dev_dependencies:
@@ -24,6 +27,9 @@ flutter:
   assets:
     - assets/lottie/
     - assets/images/
+    - assets/data/small.txt
+    - assets/data/middle.txt
+    - assets/data/large.txt
   fonts:
     - family: AktivGrotesk
       fonts:
