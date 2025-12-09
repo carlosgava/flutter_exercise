@@ -1,8 +1,6 @@
-import 'dart:typed_data';
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:formfun_flutter_test/screens/first_exercise/repository/read_files_repository.dart';
 
 part 'lottie_animation_state.dart';
 

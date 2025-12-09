@@ -1,7 +1,5 @@
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:formfun_flutter_test/widgets/progress_bar_indicator.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,11 +18,6 @@ class _LottieCardAnimation extends State<LottieCardAnimation> {
   @override
   void initState()  {
     super.initState();
-    _readBytes();
-  }
-
-  Future<void> _readBytes() async {
-    context.read<LottieAnimationCubit>().readFileBytes('assets/data/middle.txt');
   }
 
   @override
@@ -35,7 +28,9 @@ class _LottieCardAnimation extends State<LottieCardAnimation> {
       ),
       body: BlocBuilder<LottieAnimationCubit, LottieAnimationState>(
         builder: (context, state) {
-          if (state is LottieAnimationInitialState || state is LottieAnimationLoadingState) {
+          if (state is LottieAnimationInitialState) {
+            return Container();
+          } else if (state is LottieAnimationLoadingState) {
             return showAnimation(true);
           } else if (state is LottieAnimationLoadedState) {
             return showAnimation(false);
@@ -144,8 +139,8 @@ Widget _withAnimation() {
           const SizedBox(height: 10),
           ProgressBarIndicator(
             progress: (currentProgress + 0.1).clamp(0.0, 1.0),
-            progressBarColor: Colors.green,
-            backgroundColor: Colors.grey.shade300,
+            progressBarColor: Colors.grey,
+            backgroundColor: Colors.black26,
             height: 25.0,
             borderRadius: BorderRadius.circular(12.0),
           ),
