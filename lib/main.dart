@@ -13,7 +13,7 @@ class FormAndFunApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'fx-widget Showcase',
+      title: 'Form&Fun Showcase',
       theme: ThemeData.light().copyWith(
         primaryColor: const Color(0xFF1E1E1E),
         scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -45,7 +45,7 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(exercises.title),
         elevation: 0,
-        backgroundColor: Theme.of(context).primaryColorLight,
+        backgroundColor: Colors.white,
       ),
       body: Hero(
         tag: 'exercise_${exercises.title}',
@@ -77,6 +77,7 @@ class InitScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
       ),
+      backgroundColor: Colors.white,
       body: GridView.builder(
         padding: const EdgeInsets.all(16),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -88,39 +89,43 @@ class InitScreen extends StatelessWidget {
         itemCount: exercises.length,
         itemBuilder: (context, index) {
           if (index < exercises.length) {
-            return Hero(
-              tag: 'example_${exercises[index].title}',
-              child: Card(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return DetailScreen(
-                              key: UniqueKey(),
-                              exercises: exercises[index]
-                          );
-                        },
-                      ),
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.animation,
-                          size: 48, color: Colors.white70),
-                      const SizedBox(height: 8),
-                      Text(
-                        exercises[index].title,
-                        style: Theme.of(context).textTheme.titleMedium,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+            return Center(
+              child: Hero(
+                tag: 'example_${exercises[index].title}',
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return DetailScreen(
+                                key: UniqueKey(),
+                                exercises: exercises[index]
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                            Icons.animation,
+                            size: 48,
+                            color: Colors.black54
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          exercises[index].title,
+                          style: Theme.of(context).textTheme.titleMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

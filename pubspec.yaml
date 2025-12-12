@@ -15,6 +15,7 @@ dependencies:
   dio: any
   flutter_bloc: any
   equatable: any
+  flutter_svg: any
 
 
 dev_dependencies:
