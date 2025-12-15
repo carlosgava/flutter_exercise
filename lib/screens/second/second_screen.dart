@@ -209,8 +209,4 @@ class _SecondScreen extends State<SecondScreen> {
       ),
     );
   }
-
-  void _scrollTop() {
-    if (controller.hasClients) {}
-  }
 }
