@@ -23,18 +23,18 @@ class _FirstScreen extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color(0xFFE8E8E3),
       body: Center(
         child: Card(
+          color: Color(0xFFF1F1EF),
           elevation: 5,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
           child: LoadingBorder(
             duration: 4,
-            colorFrom: Colors.black,
-            colorTo: Colors.white70,
-            staticBorderColor: const Color.fromARGB(255, 255, 255, 255),
+            colorFrom: const Color.fromARGB(255, 132, 100, 237),
+            colorTo: const Color.fromARGB(255, 192, 176, 245),
             borderRadius: BorderRadius.circular(20),
             padding: EdgeInsets.all(16),
             child: SizedBox(

@@ -28,10 +28,7 @@ class ExerciseScreen {
   final String title;
   final Widget Function(BuildContext) builder;
 
-  ExerciseScreen({
-    required this.title,
-    required this.builder,
-  });
+  ExerciseScreen({required this.title, required this.builder});
 }
 
 class DetailScreen extends StatelessWidget {
@@ -45,12 +42,9 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(exercises.title),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFE8E8E3),
       ),
-      body: Hero(
-        tag: 'exercise_${exercises.title}',
-        child: exercises.builder(context),
-      ),
+      body: SafeArea(child: exercises.builder(context)),
     );
   }
 }
@@ -99,12 +93,13 @@ class InitScreen extends StatelessWidget {
                   ),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context,
+                      Navigator.push(
+                        context,
                         MaterialPageRoute(
                           builder: (context) {
                             return DetailScreen(
-                                key: UniqueKey(),
-                                exercises: exercises[index]
+                              key: UniqueKey(),
+                              exercises: exercises[index],
                             );
                           },
                         ),
@@ -114,9 +109,9 @@ class InitScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Icon(
-                            Icons.animation,
-                            size: 48,
-                            color: Colors.black54
+                          Icons.animation,
+                          size: 48,
+                          color: Colors.black54,
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -132,9 +127,7 @@ class InitScreen extends StatelessWidget {
             );
           } else {
             return SizedBox(
-              height: MediaQuery.of(context)
-                  .size
-                  .height,
+              height: MediaQuery.of(context).size.height,
               child: Container(),
             );
           }
@@ -143,4 +136,3 @@ class InitScreen extends StatelessWidget {
     );
   }
 }
-
